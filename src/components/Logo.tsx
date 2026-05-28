@@ -2,9 +2,9 @@ export function Logo() {
   return (
     <div className="logo" aria-label="OrbitBox home">
       <span className="logo-mark" aria-hidden="true">
-        <span className="orbit orbit-a" />
-        <span className="orbit orbit-b" />
-        <span className="core" />
+        <span className="logo-cut cut-a" />
+        <span className="logo-cut cut-b" />
+        <span className="logo-dot" />
       </span>
       <span className="logo-word">OrbitBox</span>
     </div>
