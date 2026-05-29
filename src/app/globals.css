@@ -54,31 +54,81 @@ a { color: inherit; text-decoration: none; }
 }
 
 .brand { display: flex; align-items: center; }
-.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.7px; }
-.logo-word { font-size: 19px; }
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 760;
+  letter-spacing: -0.82px;
+}
+.logo-word {
+  font-size: 19px;
+  line-height: 1;
+  background: linear-gradient(135deg, #050505 12%, #3f3f46 54%, #050505 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .logo-mark {
   position: relative;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   display: inline-grid;
   place-items: center;
-  border-radius: 10px;
-  background: var(--ink);
+  border-radius: 11px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(255,255,255,.36), transparent 20%),
+    linear-gradient(145deg, #050505 0%, #18181b 48%, #030303 100%);
   overflow: hidden;
-  box-shadow: rgba(0,0,0,.14) 0 0 0 1px, rgba(0,0,0,.16) 0 12px 26px -18px;
+  box-shadow:
+    rgba(255,255,255,.75) 0 1px 0 inset,
+    rgba(0,0,0,.22) 0 0 0 1px,
+    rgba(0,0,0,.2) 0 16px 32px -20px;
+  isolation: isolate;
 }
-.logo-cut {
+.logo-mark::before {
+  content: "";
   position: absolute;
-  width: 26px;
-  height: 10px;
-  border-radius: 999px;
-  background: white;
-  transform-origin: center;
-  animation: logoSweep 5.5s ease-in-out infinite;
+  inset: -42%;
+  background: conic-gradient(from 90deg, transparent, rgba(255,255,255,.2), transparent 34%);
+  animation: markHalo 7s linear infinite;
+  opacity: .55;
 }
-.cut-a { transform: rotate(37deg); }
-.cut-b { transform: rotate(-37deg); opacity: .68; animation-delay: .2s; }
-.logo-dot { width: 6px; height: 6px; border-radius: 50%; background: white; z-index: 1; }
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+  pointer-events: none;
+}
+.orbitbox-mark {
+  position: relative;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  overflow: visible;
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,.2));
+}
+.orbitbox-mark path {
+  fill: currentColor;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.mark-wing,
+.mark-ray,
+.mark-stem,
+.mark-spark { opacity: .96; }
+.mark-core {
+  fill: #ffffff;
+  animation: logoCorePulse 4.8s ease-in-out infinite;
+}
+.mark-wing-a { animation: logoBarGlide 5.4s ease-in-out infinite; }
+.mark-wing-b { animation: logoBarGlide 5.4s ease-in-out infinite reverse; }
+.mark-ray-a { opacity: .88; }
+.mark-ray-b { opacity: .72; }
+.mark-spark { opacity: .82; }
 
 nav { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 500; }
 nav a { color: #3f3f3f; transition: color .18s ease, transform .18s ease; }
@@ -295,7 +345,9 @@ li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; backgroun
 
 @keyframes revealUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes gradientFloat { from { transform: translateY(-10px) scale(.98); } to { transform: translateY(16px) scale(1.03); } }
-@keyframes logoSweep { 0%, 100% { opacity: .92; } 50% { opacity: .58; } }
+@keyframes markHalo { to { transform: rotate(360deg); } }
+@keyframes logoCorePulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.86); opacity: .74; } }
+@keyframes logoBarGlide { 0%,100% { transform: translateX(0); opacity: .96; } 50% { transform: translateX(1.6px); opacity: .62; } }
 @keyframes rotateOrbit { to { transform: rotate(360deg); } }
 @keyframes floatNode { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 @keyframes terminalSheen { 0%, 45% { transform: translateX(-120%); } 70%, 100% { transform: translateX(120%); } }
