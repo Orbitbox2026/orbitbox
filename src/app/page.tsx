@@ -1,198 +1,236 @@
-import { Logo, XIcon } from '../components/Logo';
+import Link from 'next/link';
+import { AIStatus } from '../components/AIStatus';
+import {
+  IconBot,
+  IconHeart,
+  IconDoc,
+  IconScale,
+  IconUsers,
+  IconCalendar,
+  IconArrow,
+  IconSparkles,
+  IconShield,
+  IconChart,
+} from '../components/icons';
 
-const featureColumns = [
+const features = [
   {
-    title: 'Platform',
-    items: ['Organizations', 'API keys', 'Limits', 'Audit logs', 'OpenTelemetry'],
+    href: '/asisten',
+    icon: <IconBot size={26} />,
+    title: 'Asisten AI Kedewanan',
+    desc: 'Tanya jawab cerdas: susun draf surat & nota dinas, pidato, jelaskan regulasi, hingga telaah aspirasi — dalam Bahasa Indonesia formal.',
   },
   {
-    title: 'Sandboxes',
-    items: ['Environments', 'Snapshots', 'Volumes', 'Regions', 'Declarative builder'],
+    href: '/aspirasi',
+    icon: <IconHeart size={26} />,
+    title: 'Analisis Aspirasi Warga',
+    desc: 'AI mengklasifikasi kategori, sentimen, prioritas, komisi pengampu, dan memberi rekomendasi tindak lanjut atas setiap aspirasi masyarakat.',
   },
   {
-    title: 'Agent tools',
-    items: ['Process execution', 'Filesystem API', 'Git operations', 'PTY sessions', 'MCP server'],
+    href: '/notulen',
+    icon: <IconDoc size={26} />,
+    title: 'Notulen Rapat Otomatis',
+    desc: 'Ubah poin-poin pembahasan menjadi notulen rapat resmi yang rapi dan siap diarsipkan hanya dalam hitungan detik.',
   },
   {
-    title: 'Human tools',
-    items: ['Dashboard', 'Web terminal', 'SSH access', 'Preview URLs', 'VNC access'],
+    href: '/produk-hukum',
+    icon: <IconScale size={26} />,
+    title: 'Produk Hukum Daerah',
+    desc: 'Repositori Perda & Raperda dengan pencarian cepat serta tanya jawab regulasi berbasis AI.',
+  },
+  {
+    href: '/anggota',
+    icon: <IconUsers size={26} />,
+    title: 'Direktori Anggota',
+    desc: 'Profil anggota dewan beserta fraksi, komisi, dan daerah pemilihan se-Kabupaten Mesuji.',
+  },
+  {
+    href: '/asisten',
+    icon: <IconCalendar size={26} />,
+    title: 'Dukungan Persidangan',
+    desc: 'Bantuan menyiapkan agenda, bahan rapat, dan ringkasan untuk kelancaran masa sidang dewan.',
   },
 ];
 
-const workflow = [
-  ['Develop', 'blue', 'Agents create files, install packages, run commands, and iterate inside a clean workspace.'],
-  ['Preview', 'pink', 'Expose ports, inspect app previews, stream logs, and approve changes before merge.'],
-  ['Ship', 'red', 'Snapshot the verified state, export artifacts, or hand the result to your deploy pipeline.'],
-];
-
-const projectNotes = [
-  ['What it is', 'OrbitBox is a landing page concept for secure, elastic AI-code sandboxes inspired by Daytona\'s public positioning.'],
-  ['What it does', 'It explains isolated runtime infrastructure for agents: sandbox lifecycle, snapshots, process execution, previews, and human access.'],
-  ['What is original', 'The OrbitBox name, logo, copy structure, CSS animation, terminal mockup, and page implementation are custom-built for this project.'],
+const fungsi = [
+  {
+    icon: <IconScale size={24} />,
+    title: 'Legislasi',
+    desc: 'Membentuk peraturan daerah bersama kepala daerah — dibantu AI dalam penyusunan dan telaah naskah.',
+  },
+  {
+    icon: <IconChart size={24} />,
+    title: 'Anggaran',
+    desc: 'Membahas dan menyetujui APBD — dengan ringkasan dokumen anggaran yang cepat dipahami.',
+  },
+  {
+    icon: <IconShield size={24} />,
+    title: 'Pengawasan',
+    desc: 'Mengawasi pelaksanaan perda dan APBD serta menindaklanjuti aspirasi masyarakat secara terstruktur.',
+  },
 ];
 
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a href="#top" className="brand" aria-label="OrbitBox">
-          <Logo />
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#platform">Platform</a>
-          <a href="#sandboxes">Sandboxes</a>
-          <a href="#workflow">Workflow</a>
-          <a href="#project">Project</a>
-          <a className="x-link" href="https://x.com/daytonaio" target="_blank" rel="noreferrer" aria-label="Follow on X">
-            <XIcon />
-          </a>
-        </nav>
-        <a className="header-cta" href="#demo">Start building</a>
-      </header>
-
-      <section id="top" className="hero reveal">
-        <div className="hero-logo-lockup" aria-hidden="true">
-          <Logo />
-        </div>
-        <div className="eyebrow">AI runtime infrastructure</div>
-        <h1>
-          Run AI Code.
-          <br />
-          Secure and Elastic Infrastructure for AI-Generated Code.
-        </h1>
-        <p>
-          OrbitBox gives agents full composable computers with isolation, snapshots,
-          filesystem access, process execution, previews, and human controls — built for
-          code that should run fast but never run loose.
-        </p>
-        <div className="hero-actions">
-          <a className="primary-btn" href="#demo">Get started</a>
-          <a className="secondary-btn" href="https://github.com/Orbitbox2026/orbitbox" target="_blank" rel="noreferrer">GitHub repo</a>
-        </div>
-
-        <div className="hero-stage" role="img" aria-label="Animated sandbox runtime preview">
-          <div className="sandbox-orbit orbit-one" />
-          <div className="sandbox-orbit orbit-two" />
-          <div className="runtime-node node-a">agent</div>
-          <div className="runtime-node node-b">api</div>
-          <div className="runtime-node node-c">pty</div>
-          <div className="terminal-card">
-            <div className="terminal-top">
-              <span /> <span /> <span />
-              <strong>orbitbox sandbox create ai-worker</strong>
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-inner">
+          <div>
+            <span className="eyebrow">
+              <IconSparkles size={14} /> Didukung Kecerdasan Buatan
+            </span>
+            <h1>
+              Platform AI Cerdas untuk <span className="accent">DPRD Kabupaten Mesuji</span>
+            </h1>
+            <p className="lead">
+              SiCerdas mempermudah kinerja Dewan Perwakilan Rakyat Daerah Mesuji, Lampung — mulai dari
+              penyusunan dokumen, analisis aspirasi masyarakat, notulen rapat, hingga penjelasan
+              regulasi, semuanya dipercepat oleh AI.
+            </p>
+            <div className="hero-actions">
+              <Link href="/asisten" className="btn btn-primary">
+                <IconBot size={19} /> Mulai dengan Asisten AI
+              </Link>
+              <Link href="/aspirasi" className="btn btn-ghost">
+                Kelola Aspirasi <IconArrow size={17} />
+              </Link>
             </div>
-            <pre>{`$ orbitbox sandbox create ai-worker --snapshot node
-✓ full computer allocated
-✓ dedicated kernel boundary
-✓ filesystem + network policy mounted
-✓ preview tunnel online
-✓ sandbox ready in 88ms
+            <div style={{ marginTop: 22 }}>
+              <AIStatus />
+            </div>
+            <div className="hero-trust">
+              <div>
+                <strong>7</strong>
+                <span>Kecamatan terlayani</span>
+              </div>
+              <div>
+                <strong>3</strong>
+                <span>Fungsi dewan didukung</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>Asisten siap membantu</span>
+              </div>
+            </div>
+          </div>
 
-https://ai-worker.preview.orbitbox.dev`}</pre>
+          {/* Chat preview */}
+          <div className="hero-panel" aria-hidden="true">
+            <div className="hero-panel-top">
+              <i />
+              <i />
+              <i />
+              <span style={{ marginLeft: 6 }}>SiCerdas · Asisten AI</span>
+            </div>
+            <div className="hero-panel-body">
+              <div className="bubble user">
+                Buatkan draf undangan rapat paripurna pembahasan APBD Perubahan 2026.
+              </div>
+              <div className="bubble ai">
+                Tentu. Berikut draf undangannya:
+                <br />
+                <b>Nomor:</b> .../DPRD-MSJ/2026
+                <br />
+                <b>Perihal:</b> Undangan Rapat Paripurna
+                <br />
+                Kepada Yth. Anggota Dewan, dengan hormat kami mengundang Bapak/Ibu pada Rapat
+                Paripurna pembahasan APBD-P…
+              </div>
+              <div className="bubble user">Sekalian analisis aspirasi soal jalan rusak.</div>
+              <div className="bubble ai">
+                <b>Kategori:</b> Infrastruktur · <b>Prioritas:</b> Tinggi
+                <br />
+                Disposisi ke Komisi C — Pembangunan. Rekomendasi: verifikasi lapangan & rapat kerja
+                dengan Dinas PUPR. ✅
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="platform" className="section intro-band reveal">
-        <span className="mono-label">Why OrbitBox</span>
-        <h2>Safe execution for code produced by autonomous systems.</h2>
-        <p>
-          AI agents need more than a function call. They need computers: package managers,
-          terminals, long-running processes, previews, snapshots, and permission boundaries.
-          OrbitBox presents that idea as a clean product landing page.
-        </p>
-      </section>
-
-      <section className="section quick-explain reveal" aria-label="Short OrbitBox project explanation">
-        <div>
-          <span className="mono-label">Project summary</span>
-          <h2>OrbitBox is a Daytona-style concept for running AI code safely.</h2>
-        </div>
-        <p>
-          It is not the real Daytona product. It is a custom Next.js landing page that demonstrates
-          the same category: isolated sandboxes, fast startup, snapshots, terminal access, preview URLs,
-          and controlled infrastructure for autonomous coding agents.
-        </p>
-      </section>
-
-      <section id="sandboxes" className="section matrix-section reveal">
-        <div className="section-copy">
-          <span className="mono-label">Feature matrix</span>
-          <h2>From sandbox lifecycle to human-in-the-loop access.</h2>
-        </div>
-        <div className="feature-matrix">
-          {featureColumns.map((column) => (
-            <article className="matrix-card" key={column.title}>
-              <h3>{column.title}</h3>
-              <ul>
-                {column.items.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </article>
-          ))}
+      {/* FITUR */}
+      <section className="section" id="fitur">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">
+              <IconSparkles size={14} /> Fitur Unggulan
+            </span>
+            <h2>Satu platform untuk seluruh pekerjaan dewan</h2>
+            <p>
+              Dirancang khusus untuk kebutuhan sekretariat dan anggota DPRD Mesuji agar pekerjaan
+              administratif dan substantif menjadi lebih cepat, rapi, dan transparan.
+            </p>
+          </div>
+          <div className="grid grid-3">
+            {features.map((f) => (
+              <Link key={f.title} href={f.href} className="card feature">
+                <span className="ico">{f.icon}</span>
+                <h3>{f.title}</h3>
+                <p>{f.desc}</p>
+                <span className="link">
+                  Buka <IconArrow size={16} />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="workflow" className="section workflow-section reveal">
-        <span className="mono-label">Workflow</span>
-        <h2>Develop, preview, ship — every phase inside a controlled boundary.</h2>
-        <div className="pipeline" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="workflow">
-          {workflow.map(([title, color, body]) => (
-            <article className={`workflow-step ${color}`} key={title}>
-              <span>{title}</span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="security" className="section security-panel reveal">
-        <div>
-          <span className="mono-label">Security model</span>
-          <h2>Designed for untrusted code execution.</h2>
-          <p>
-            Resource quotas, network policies, isolated kernels, ephemeral volumes,
-            preview links, logs, and snapshots let agents explore freely while production
-            systems remain protected.
-          </p>
-        </div>
-        <div className="checklist">
-          <span>Dedicated kernel boundary</span>
-          <span>Policy-controlled network</span>
-          <span>Ephemeral or persistent volumes</span>
-          <span>Logs, previews, and PTY access</span>
+      {/* FUNGSI DPRD */}
+      <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--line)' }}>
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Tiga Fungsi DPRD</span>
+            <h2>Mendukung tugas konstitusional dewan</h2>
+            <p>
+              SiCerdas hadir sebagai mitra digital untuk memperkuat pelaksanaan ketiga fungsi utama
+              DPRD secara akuntabel.
+            </p>
+          </div>
+          <div className="grid grid-3">
+            {fungsi.map((f) => (
+              <div key={f.title} className="card feature">
+                <span className="ico">{f.icon}</span>
+                <h3>{f.title}</h3>
+                <p>{f.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="project" className="section project-section reveal">
-        <span className="mono-label">Project explanation</span>
-        <h2>Penjelasan proyek OrbitBox.</h2>
-        <div className="project-grid">
-          {projectNotes.map(([title, body]) => (
-            <article className="project-card" key={title}>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
+      {/* CTA */}
+      <section className="section">
+        <div className="wrap">
+          <div
+            className="card"
+            style={{
+              padding: '46px 32px',
+              textAlign: 'center',
+              background: 'linear-gradient(140deg, var(--brand-strong), var(--brand-deep))',
+              color: '#fff',
+            }}
+          >
+            <h2 style={{ fontSize: 'clamp(24px,3.4vw,34px)', letterSpacing: '-1px', margin: 0 }}>
+              Siap mempermudah pekerjaan dewan?
+            </h2>
+            <p
+              style={{
+                color: '#cdeadd',
+                maxWidth: 560,
+                margin: '14px auto 26px',
+                fontSize: 16,
+                lineHeight: 1.6,
+              }}
+            >
+              Coba asisten AI SiCerdas sekarang — tanpa instalasi, langsung dari peramban Anda.
+            </p>
+            <Link href="/asisten" className="btn btn-gold">
+              <IconBot size={19} /> Buka Asisten AI
+            </Link>
+          </div>
         </div>
-        <p className="legal-note">
-          Catatan: desain dibuat agar lebih dekat dengan nuansa Daytona, tetapi tetap memakai nama,
-          logo, animasi, dan copy original supaya tidak menyalin aset/trademark Daytona secara persis.
-        </p>
-      </section>
-
-      <section id="demo" className="section final-cta reveal">
-        <Logo />
-        <h2>Give every AI agent a clean room to work in.</h2>
-        <p>Build, test, inspect, snapshot, preview, and dispose of workspaces on demand.</p>
-        <a className="primary-btn" href="https://github.com/Orbitbox2026/orbitbox" target="_blank" rel="noreferrer">
-          View OrbitBox repo
-        </a>
       </section>
     </main>
   );

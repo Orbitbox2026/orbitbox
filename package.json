@@ -1,8 +1,8 @@
 {
-  "name": "sandbox-runtime-landing",
+  "name": "sicerdas-dprd-mesuji",
   "version": "1.0.0",
   "private": true,
-  "description": "Daytona-inspired landing page for secure AI code sandboxes.",
+  "description": "SiCerdas — Platform AI untuk mempermudah kinerja DPRD Kabupaten Mesuji, Lampung.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +12,8 @@
   "dependencies": {
     "next": "^15.5.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "@anthropic-ai/sdk": "^0.65.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

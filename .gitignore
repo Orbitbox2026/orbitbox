@@ -1,25 +1,18 @@
 # dependencies
-node_modules/
+/node_modules
 
-# next
-.next/
-out/
+# next.js / build output
+/.next
+/out
+/build
+*.tsbuildinfo
+next-env.d.ts
 
-# production
-build/
-dist/
-
-# env / secrets
-.env*
-!.env.example
-.vercel/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# system
+# misc
 .DS_Store
-*.pem
+*.log
+
+# environment (keep .env.example tracked)
+.env
+.env.local
+.env.*.local
