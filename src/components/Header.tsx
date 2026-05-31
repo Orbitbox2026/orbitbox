@@ -73,7 +73,7 @@ export default function Header() {
         <button
           className="mobile-menu-btn"
           type="button"
-          aria-label={menuOpen ? 'Tutup menu' : 'Buka menu navigasi'}
+          aria-label={menuOpen ? 'Close menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen((v) => !v)}

@@ -34,21 +34,21 @@ const projectNotes = [
 
 const docsSidebar = [
   { href: '#docs-overview', label: 'Overview OrbitBox' },
-  { href: '#docs-sandbox', label: 'Konsep Sandbox' },
-  { href: '#docs-lifecycle', label: 'Siklus Hidup (Lifecycle)' },
-  { href: '#docs-security', label: 'Model Keamanan' },
-  { href: '#docs-workflow', label: 'Workflow Agen' },
+  { href: '#docs-sandbox', label: 'Sandbox Concept' },
+  { href: '#docs-lifecycle', label: 'Lifecycle' },
+  { href: '#docs-security', label: 'Security Model' },
+  { href: '#docs-workflow', label: 'Agent Workflow' },
   { href: '#docs-quickstart', label: 'Quickstart' },
-  { href: '#docs-api', label: 'API Konseptual' },
+  { href: '#docs-api', label: 'Conceptual API' },
   { href: '#docs-faq', label: 'FAQ' },
 ];
 
 const docsOnPage = [
   { href: '#docs-overview', label: 'Overview' },
-  { href: '#docs-sandbox', label: 'Konsep Sandbox' },
+  { href: '#docs-sandbox', label: 'Sandbox Concept' },
   { href: '#docs-lifecycle', label: 'Lifecycle' },
-  { href: '#docs-security', label: 'Keamanan' },
-  { href: '#docs-workflow', label: 'Workflow Agen' },
+  { href: '#docs-security', label: 'Security' },
+  { href: '#docs-workflow', label: 'Agent Workflow' },
   { href: '#docs-quickstart', label: 'Quickstart' },
   { href: '#docs-api', label: 'API' },
   { href: '#docs-faq', label: 'FAQ' },
@@ -180,7 +180,7 @@ https://ai-worker.preview.orbitbox.dev`}</pre>
 
       <section id="project" className="section project-section reveal">
         <span className="mono-label">Project explanation</span>
-        <h2>Penjelasan proyek OrbitBox.</h2>
+        <h2>OrbitBox project explanation.</h2>
         <div className="project-grid">
           {projectNotes.map(([title, body]) => (
             <article className="project-card" key={title}>
@@ -190,26 +190,26 @@ https://ai-worker.preview.orbitbox.dev`}</pre>
           ))}
         </div>
         <p className="legal-note">
-          Catatan: desain dibuat agar lebih dekat dengan nuansa Daytona, tetapi tetap memakai nama,
-          logo, animasi, dan copy original supaya tidak menyalin aset/trademark Daytona secara persis.
+          Note: the design is intentionally closer to Daytona's visual tone, while still using an original name,
+          logo, animation, and copy so it does not directly copy Daytona assets or trademarks.
         </p>
       </section>
 
       {/* ── GitBook-style Docs ────────────────────────────────────── */}
       <section id="docs" className="section docs-section reveal">
         <div className="docs-section-header">
-          <span className="mono-label">Dokumentasi</span>
-          <h2>Panduan lengkap OrbitBox.</h2>
+          <span className="mono-label">Documentation</span>
+          <h2>Complete OrbitBox guide.</h2>
           <p className="docs-intro">
-            Referensi teknis dan konseptual untuk memahami cara kerja OrbitBox —
-            dari konsep sandbox hingga contoh quickstart.
+            Technical and conceptual references for understanding how OrbitBox works —
+            from sandbox concepts to quickstart examples.
           </p>
         </div>
 
         <div className="docs-layout">
           {/* Left sidebar — table of contents */}
-          <aside className="docs-sidebar" aria-label="Daftar isi dokumentasi">
-            <p className="sidebar-heading">Pada halaman ini</p>
+          <aside className="docs-sidebar" aria-label="Documentation table of contents">
+            <p className="sidebar-heading">On this page</p>
             <nav>
               {docsSidebar.map((item) => (
                 <a key={item.href} href={item.href} className="sidebar-link">
@@ -224,158 +224,158 @@ https://ai-worker.preview.orbitbox.dev`}</pre>
 
             <h2 id="docs-overview">Overview OrbitBox</h2>
             <p>
-              OrbitBox adalah platform infrastruktur runtime yang dirancang untuk menjalankan
-              kode hasil generasi agen AI secara aman, terisolasi, dan efisien. Berbeda dengan
-              pendekatan tradisional yang hanya mengandalkan eksekutor fungsi sederhana,
-              OrbitBox memberikan agen AI sebuah <strong>komputer lengkap</strong> — kernel
-              boundary terdedikasi, filesystem pribadi, koneksi jaringan terkontrol, serta
-              akses terminal interaktif.
+              OrbitBox is a runtime infrastructure platform designed to run
+              AI-generated code safely, in isolation, and efficiently. Unlike
+              traditional approaches that rely only on simple function executors,
+              OrbitBox gives AI agents a <strong>complete computer</strong> — a dedicated
+              kernel boundary, private filesystem, controlled network connectivity, and
+              interactive terminal access.
             </p>
             <p>
-              Ini berarti agen AI tidak lagi terbatas hanya pada pemanggilan fungsi. Mereka
-              dapat menginstal paket, menjalankan proses lama (long-running), membuat dan
-              memodifikasi file, mengakses database, hingga melakukan preview aplikasi web —
-              semua dalam lingkungan yang terisolasi dan dapat dibuang (ephemeral) saat
-              sudah tidak diperlukan.
+              This means AI agents are no longer limited to function calls. They
+              can install packages, run long-lived processes, create and
+              modify files, access databases, and preview web applications —
+              all inside an isolated environment that can be discarded when
+              it is no longer needed.
             </p>
 
-            <h2 id="docs-sandbox">Konsep Sandbox</h2>
+            <h2 id="docs-sandbox">Sandbox Concept</h2>
             <p>
-              Sandbox dalam OrbitBox adalah unit komputasi yang berdiri sendiri. Setiap
-              sandbox beroperasi secara independen dan tidak berbagi state dengan sandbox
-              lain. Berikut komponen utama sebuah sandbox:
+              A sandbox in OrbitBox is a self-contained compute unit. Each
+              sandbox operates independently and does not share state with other
+              sandboxes. These are the core components of a sandbox:
             </p>
             <ul>
-              <li><strong>Kernel boundary terdedikasi</strong> — proses di dalam sandbox tidak dapat memengaruhi proses di luar.</li>
-              <li><strong>Filesystem terisolasi</strong> — setiap sandbox memiliki sistem file sendiri.</li>
-              <li><strong>Network policy</strong> — akses jaringan keluar dikontrol melalui kebijakan yang dapat dikonfigurasi.</li>
-              <li><strong>Resource quotas</strong> — CPU, memori, dan disk dibatasi sesuai konfigurasi platform.</li>
-              <li><strong>Preview URL</strong> — setiap port yang di-expose mendapat URL aman untuk diakses manusia.</li>
+              <li><strong>Dedicated kernel boundary</strong> — processes inside the sandbox cannot affect processes outside it.</li>
+              <li><strong>Isolated filesystem</strong> — every sandbox has its own filesystem.</li>
+              <li><strong>Network policy</strong> — outbound network access is controlled through configurable policies.</li>
+              <li><strong>Resource quotas</strong> — CPU, memory, and disk are limited according to platform configuration.</li>
+              <li><strong>Preview URL</strong> — every exposed port receives a secure URL for human access.</li>
             </ul>
             <p>
-              Sandbox bisa bersifat <strong>ephemeral</strong> (dibuang otomatis setelah
-              selesai) atau <strong>persistent</strong> (data disimpan dalam volume yang
-              tahan lama dan bisa di-snapshot).
+              A sandbox can be <strong>ephemeral</strong> (automatically discarded after
+              completion) or <strong>persistent</strong> (data is stored in durable volumes
+              that can be snapshotted).
             </p>
 
-            <h2 id="docs-lifecycle">Siklus Hidup (Lifecycle)</h2>
+            <h2 id="docs-lifecycle">Lifecycle</h2>
             <p>
-              Setiap sandbox melewati siklus hidup yang terstruktur. Memahami lifecycle ini
-              penting untuk merancang workflow agen yang efisien.
+              Every sandbox moves through a structured lifecycle. Understanding this
+              lifecycle is important for designing efficient agent workflows.
             </p>
 
             <h3>1. Create</h3>
             <p>
-              Sandbox dibuat dari sebuah snapshot atau template dasar (misalnya image
-              Node.js, Python, atau custom). Proses inisialisasi biasanya berlangsung
-              kurang dari 100&nbsp;ms karena OrbitBox menggunakan mekanisme snapshot
-              copy-on-write yang cepat.
+              A sandbox is created from a snapshot or base template, such as a
+              Node.js, Python, or custom image. Initialization usually completes
+              in under 100&nbsp;ms because OrbitBox uses a fast copy-on-write
+              snapshot mechanism.
             </p>
 
             <h3>2. Run</h3>
             <p>
-              Agen atau pengguna menjalankan perintah di dalam sandbox melalui Process API,
-              PTY session, atau Filesystem API. Di fase ini agen bisa menginstal dependensi,
-              menulis kode, menjalankan server, dan mengiterasi perubahan.
+              Agents or users run commands inside the sandbox through the Process API,
+              PTY sessions, or the Filesystem API. In this phase, agents can install dependencies,
+              write code, run servers, and iterate on changes.
             </p>
 
             <h3>3. Preview</h3>
             <p>
-              Port aplikasi di-expose melalui URL aman yang bisa diakses oleh manusia
-              (human-in-the-loop review). Preview URL tersedia selama sandbox aktif dan
-              tidak memerlukan konfigurasi jaringan tambahan.
+              Application ports are exposed through secure URLs that humans can access
+              for human-in-the-loop review. Preview URLs remain available while the sandbox is active
+              and do not require additional network configuration.
             </p>
 
             <h3>4. Snapshot</h3>
             <p>
-              State sandbox yang sudah terverifikasi disimpan sebagai snapshot. Snapshot
-              ini bisa digunakan sebagai titik awal (base) untuk sandbox berikutnya,
-              sehingga setup tidak perlu diulang dari awal.
+              The verified sandbox state is saved as a snapshot. This snapshot
+              can be used as the base for the next sandbox, so setup does not need
+              to be repeated from scratch.
             </p>
 
             <h3>5. Dispose</h3>
             <p>
-              Sandbox dihentikan dan semua resource dibebaskan. Data ephemeral dihapus
-              secara otomatis. Data yang disimpan di volume persistent tetap tersedia
-              untuk sesi berikutnya.
+              The sandbox is stopped and all resources are released. Ephemeral data is deleted
+              automatically. Data stored in persistent volumes remains available
+              for future sessions.
             </p>
 
-            <h2 id="docs-security">Model Keamanan</h2>
+            <h2 id="docs-security">Security Model</h2>
             <p>
-              OrbitBox dirancang dengan prinsip <em>untrusted code execution by default</em>.
-              Setiap lapisan infrastruktur dibangun dengan asumsi bahwa kode yang berjalan
-              di dalamnya tidak dapat dipercaya secara penuh.
+              OrbitBox is designed around the principle of <em>untrusted code execution by default</em>.
+              Every infrastructure layer assumes that code running inside it
+              cannot be fully trusted.
             </p>
             <ul>
-              <li><strong>Kernel isolation</strong> — setiap sandbox memiliki kernel boundary tersendiri, bukan sekadar container namespace biasa.</li>
-              <li><strong>Network egress policy</strong> — lalu lintas jaringan keluar dikontrol oleh policy, bukan hanya firewall level host.</li>
-              <li><strong>Ephemeral volumes</strong> — volume sementara dibuang otomatis saat dispose, tidak ada data residual.</li>
-              <li><strong>Audit logs</strong> — semua operasi dicatat dalam audit log yang dapat diekspor ke OpenTelemetry.</li>
-              <li><strong>Preview tunnel</strong> — URL preview menggunakan tunnel terenkripsi, tidak mengekspos IP server secara langsung.</li>
-              <li><strong>Resource quotas</strong> — CPU dan memori dibatasi per sandbox, mencegah satu sandbox memonopoli resource.</li>
+              <li><strong>Kernel isolation</strong> — every sandbox has its own kernel boundary, not just a standard container namespace.</li>
+              <li><strong>Network egress policy</strong> — outbound network traffic is controlled by policy, not only by a host-level firewall.</li>
+              <li><strong>Ephemeral volumes</strong> — temporary volumes are discarded automatically on dispose, leaving no residual data.</li>
+              <li><strong>Audit logs</strong> — every operation is recorded in audit logs that can be exported to OpenTelemetry.</li>
+              <li><strong>Preview tunnel</strong> — preview URLs use encrypted tunnels and do not expose the server IP directly.</li>
+              <li><strong>Resource quotas</strong> — CPU and memory are limited per sandbox, preventing one sandbox from monopolizing resources.</li>
             </ul>
 
-            <h2 id="docs-workflow">Workflow Agen</h2>
+            <h2 id="docs-workflow">Agent Workflow</h2>
             <p>
-              Berikut adalah contoh workflow tipikal agen AI yang menggunakan OrbitBox
-              untuk menyelesaikan sebuah task pengembangan:
+              The following is a typical AI-agent workflow using OrbitBox
+              to complete a development task:
             </p>
             <ul>
-              <li>Agen menerima instruksi dari orkestrator (misalnya: &ldquo;Buat REST API sederhana dengan Node.js dan Express&rdquo;).</li>
-              <li>Agen membuat sandbox baru menggunakan API atau CLI OrbitBox.</li>
-              <li>Agen menginstal dependensi melalui Process API (menjalankan <code>npm install</code> di dalam sandbox).</li>
-              <li>Agen menulis file kode menggunakan Filesystem API.</li>
-              <li>Agen menjalankan server via PTY session dan memantau output log.</li>
-              <li>Agen mengambil Preview URL dan mengirimkannya ke manusia untuk review.</li>
-              <li>Setelah disetujui, snapshot dibuat dan sandbox di-dispose.</li>
+              <li>The agent receives instructions from an orchestrator, for example: &ldquo;Build a simple REST API with Node.js and Express&rdquo;.</li>
+              <li>The agent creates a new sandbox using the OrbitBox API or CLI.</li>
+              <li>The agent installs dependencies through the Process API by running <code>npm install</code> inside the sandbox.</li>
+              <li>The agent writes code files using the Filesystem API.</li>
+              <li>The agent runs a server through a PTY session and monitors log output.</li>
+              <li>The agent retrieves the Preview URL and sends it to a human for review.</li>
+              <li>After approval, a snapshot is created and the sandbox is disposed.</li>
             </ul>
             <p>
-              Seluruh alur ini bisa dijalankan secara otomatis oleh agen tanpa intervensi
-              manusia, kecuali di titik review yang memang membutuhkan persetujuan.
+              This entire flow can be executed automatically by agents without human intervention,
+              except at review points that require approval.
             </p>
 
             <h2 id="docs-quickstart">Quickstart</h2>
             <p>
-              Contoh perintah CLI berikut menggunakan placeholder. Ganti{' '}
-              <code>{'<YOUR-API-KEY>'}</code> dengan kunci API yang diperoleh dari
-              dashboard OrbitBox.
+              The following CLI commands use placeholders. Replace{' '}
+              <code>{'<YOUR-API-KEY>'}</code> with the API key obtained from
+              the OrbitBox dashboard.
             </p>
-            <pre><code>{`# Set variabel environment API key
+            <pre><code>{`# Set the API key environment variable
 export ORBITBOX_API_KEY=<YOUR-API-KEY>
 
-# Buat sandbox baru dari snapshot Node.js 20
+# Create a new sandbox from the Node.js 20 snapshot
 orbitbox sandbox create my-workspace --snapshot node-20
 
-# Jalankan perintah di dalam sandbox
+# Run a command inside the sandbox
 orbitbox exec my-workspace -- npm install express
 
-# Tulis file ke dalam sandbox
+# Write a file into the sandbox
 orbitbox fs write my-workspace /app/server.js --from ./server.js
 
-# Jalankan server (PTY session)
+# Run the server in a PTY session
 orbitbox exec my-workspace --pty -- node /app/server.js
 
-# Lihat preview URL
+# View the preview URL
 orbitbox sandbox info my-workspace --json | jq '.preview_url'
 
-# Simpan state saat ini sebagai snapshot
+# Save the current state as a snapshot
 orbitbox snapshot create my-workspace --name baseline-v1
 
-# Dispose sandbox setelah selesai
+# Dispose the sandbox after completion
 orbitbox sandbox dispose my-workspace`}</code></pre>
             <p>
-              Semua perintah di atas bersifat idempoten — menjalankan ulang perintah yang
-              sama tidak akan menghasilkan duplikasi jika state sudah sesuai.
+              All commands above are idempotent — running the same command again
+              will not create duplicates if the state already matches.
             </p>
 
-            <h2 id="docs-api">API Konseptual</h2>
+            <h2 id="docs-api">Conceptual API</h2>
             <p>
-              OrbitBox menyediakan REST API untuk integrasi programatik dari bahasa
-              pemrograman apa pun. Endpoint berikut adalah contoh konseptual dengan
-              placeholder URL — bukan endpoint produksi yang aktif.
+              OrbitBox provides a REST API for programmatic integrations from any
+              programming language. The following endpoints are conceptual examples with
+              placeholder URLs — not active production endpoints.
             </p>
 
-            <h3>Membuat Sandbox</h3>
+            <h3>Create a Sandbox</h3>
             <pre><code>{`POST https://api.orbitbox.example/v1/sandboxes
 Authorization: Bearer <YOUR-API-KEY>
 Content-Type: application/json
@@ -390,7 +390,7 @@ Content-Type: application/json
   }
 }`}</code></pre>
 
-            <h3>Contoh Respons</h3>
+            <h3>Example Response</h3>
             <pre><code>{`{
   "id": "sbx_xxxxxxxxxxxx",
   "name": "ai-worker",
@@ -400,7 +400,7 @@ Content-Type: application/json
   "created_at": "2026-01-01T00:00:00Z"
 }`}</code></pre>
 
-            <h3>Menjalankan Perintah</h3>
+            <h3>Run a Command</h3>
             <pre><code>{`POST https://api.orbitbox.example/v1/sandboxes/sbx_xxxxxxxxxxxx/exec
 Authorization: Bearer <YOUR-API-KEY>
 Content-Type: application/json
@@ -413,48 +413,47 @@ Content-Type: application/json
 
             <h2 id="docs-faq">FAQ</h2>
 
-            <h3>Apa bedanya sandbox OrbitBox dengan container biasa?</h3>
+            <h3>How is an OrbitBox sandbox different from a regular container?</h3>
             <p>
-              Container tradisional (Docker) berbagi kernel host dan mengandalkan
-              namespace untuk isolasi. Sandbox OrbitBox menggunakan kernel boundary
-              yang lebih kuat, memberikan isolasi yang lebih solid untuk menjalankan
-              kode yang tidak terpercaya (untrusted code).
+              Traditional containers such as Docker share the host kernel and rely on
+              namespaces for isolation. OrbitBox sandboxes use a stronger kernel boundary,
+              providing more robust isolation for running untrusted code.
             </p>
 
-            <h3>Berapa lama sandbox bisa berjalan?</h3>
+            <h3>How long can a sandbox run?</h3>
             <p>
-              Sandbox bisa berjalan selama task membutuhkan. Untuk workload sementara,
-              gunakan mode ephemeral. Untuk project yang membutuhkan kontinuitas,
-              gunakan volume persistent dan buat snapshot secara rutin.
+              A sandbox can run for as long as the task requires. For temporary workloads,
+              use ephemeral mode. For projects that need continuity,
+              use persistent volumes and create snapshots regularly.
             </p>
 
-            <h3>Apakah data di sandbox aman dari sandbox lain?</h3>
+            <h3>Is data inside one sandbox safe from other sandboxes?</h3>
             <p>
-              Ya. Setiap sandbox memiliki filesystem terisolasi. Data tidak bocor ke
-              sandbox lain. Untuk keamanan tambahan, aktifkan enkripsi volume dan
-              pastikan audit log dikirim ke sistem SIEM Anda.
+              Yes. Every sandbox has an isolated filesystem. Data does not leak into
+              other sandboxes. For additional security, enable volume encryption and
+              ensure audit logs are sent to your SIEM system.
             </p>
 
-            <h3>Bagaimana cara mengakses sandbox secara interaktif?</h3>
+            <h3>How do I access a sandbox interactively?</h3>
             <p>
-              Tersedia tiga opsi: web terminal di dashboard OrbitBox, SSH langsung ke
-              sandbox (menggunakan kunci yang diregister di platform), atau VNC untuk
-              akses antarmuka grafis. PTY session juga tersedia via API untuk agen
-              yang membutuhkan akses terminal programatik.
+              Three options are available: the web terminal in the OrbitBox dashboard, direct SSH into
+              the sandbox using keys registered with the platform, or VNC for
+              graphical interface access. PTY sessions are also available through the API for agents
+              that need programmatic terminal access.
             </p>
 
-            <h3>Apakah OrbitBox mendukung bahasa pemrograman selain Node.js?</h3>
+            <h3>Does OrbitBox support programming languages beyond Node.js?</h3>
             <p>
-              Ya. OrbitBox menyediakan berbagai snapshot dasar: Python, Go, Rust, Java,
-              dan lainnya. Anda juga bisa membuat snapshot custom dari image Anda
-              sendiri menggunakan fitur Declarative Builder.
+              Yes. OrbitBox provides a variety of base snapshots: Python, Go, Rust, Java,
+              and more. You can also create custom snapshots from your own images
+              using the Declarative Builder feature.
             </p>
 
           </article>
 
           {/* Right — on this page */}
-          <aside className="docs-onpage" aria-label="Navigasi pada halaman ini">
-            <p className="onpage-title">Pada halaman ini</p>
+          <aside className="docs-onpage" aria-label="On-page navigation">
+            <p className="onpage-title">On this page</p>
             <nav>
               {docsOnPage.map((item) => (
                 <a key={item.href} href={item.href}>
