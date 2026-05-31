@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://daytona-inspired-site.vercel.app">Live Demo</a>
+  <a href="https://orbitbox.pro/">Live Demo</a>
   ·
   <a href="#quickstart">Quickstart</a>
   ·
@@ -30,7 +30,7 @@ The project explains how an AI agent can receive a clean, disposable workspace w
 
 ## Live Demo
 
-- Website: https://daytona-inspired-site.vercel.app
+- Website: https://orbitbox.pro/
 - Repository: https://github.com/Orbitbox2026/orbitbox
 
 ## What OrbitBox Demonstrates
