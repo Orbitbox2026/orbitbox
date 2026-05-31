@@ -50,7 +50,7 @@ export default function Header() {
         <a href="#project">Project</a>
         <a
           className="x-link"
-          href="https://x.com/daytonaio"
+          href="https://x.com/Orbitbox_"
           target="_blank"
           rel="noreferrer"
           aria-label="Follow on X"
@@ -97,7 +97,7 @@ export default function Header() {
           <a href="#project" onClick={close}>Project</a>
           <div className="mobile-menu-socials">
             <a
-              href="https://x.com/daytonaio"
+              href="https://x.com/Orbitbox_"
               target="_blank"
               rel="noreferrer"
               aria-label="Follow on X"
