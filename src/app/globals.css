@@ -75,60 +75,20 @@ a { color: inherit; text-decoration: none; }
   height: 40px;
   display: inline-grid;
   place-items: center;
-  border-radius: 11px;
-  color: #ffffff;
-  background:
-    radial-gradient(circle at 72% 18%, rgba(255,255,255,.36), transparent 20%),
-    linear-gradient(145deg, #050505 0%, #18181b 48%, #030303 100%);
+  border-radius: 12px;
+  background: #ffffff;
   overflow: hidden;
   box-shadow:
-    rgba(255,255,255,.75) 0 1px 0 inset,
-    rgba(0,0,0,.22) 0 0 0 1px,
-    rgba(0,0,0,.2) 0 16px 32px -20px;
+    rgba(10,114,239,.16) 0 0 0 1px,
+    rgba(10,114,239,.2) 0 14px 32px -18px;
   isolation: isolate;
 }
-.logo-mark::before {
-  content: "";
-  position: absolute;
-  inset: -42%;
-  background: conic-gradient(from 90deg, transparent, rgba(255,255,255,.2), transparent 34%);
-  animation: markHalo 7s linear infinite;
-  opacity: .55;
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
 }
-.logo-mark::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: 10px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
-  pointer-events: none;
-}
-.orbitbox-mark {
-  position: relative;
-  z-index: 1;
-  width: 32px;
-  height: 32px;
-  overflow: visible;
-  filter: drop-shadow(0 5px 8px rgba(0,0,0,.2));
-}
-.orbitbox-mark path {
-  fill: currentColor;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.mark-wing,
-.mark-ray,
-.mark-stem,
-.mark-spark { opacity: .96; }
-.mark-core {
-  fill: #ffffff;
-  animation: logoCorePulse 4.8s ease-in-out infinite;
-}
-.mark-wing-a { animation: logoBarGlide 5.4s ease-in-out infinite; }
-.mark-wing-b { animation: logoBarGlide 5.4s ease-in-out infinite reverse; }
-.mark-ray-a { opacity: .88; }
-.mark-ray-b { opacity: .72; }
-.mark-spark { opacity: .82; }
 
 nav { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 500; }
 nav a { color: #3f3f3f; transition: color .18s ease, transform .18s ease; }
