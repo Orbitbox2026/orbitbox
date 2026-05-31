@@ -1,0 +1,109 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">OrbitBox 3D sandbox animation</title>
+  <desc id="desc">Animated blue 3D cube with orbital rings and runtime nodes for the OrbitBox GitHub README.</desc>
+  <style>
+    :root {
+      --bg0: #071033;
+      --bg1: #0d1b55;
+      --cyan: #60e6ff;
+      --blue: #2a5ef5;
+      --indigo: #6b5cff;
+      --line: rgba(96, 230, 255, .42);
+      --text: #eef4ff;
+      --muted: #a9b7e8;
+    }
+    .grid { opacity: .23; }
+    .orbit { transform-origin: 600px 210px; animation: spin 14s linear infinite; }
+    .orbit.two { animation-duration: 20s; animation-direction: reverse; opacity: .55; }
+    .orbit.three { animation-duration: 9s; opacity: .35; }
+    .cube { transform-origin: 600px 205px; animation: float 4.8s ease-in-out infinite; }
+    .node { transform-origin: center; animation: pulse 2.7s ease-in-out infinite; }
+    .node.b { animation-delay: .45s; }
+    .node.c { animation-delay: .9s; }
+    .shine { animation: scan 4s ease-in-out infinite; }
+    .terminal { animation: terminalFloat 5.8s ease-in-out infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-14px) rotate(1deg); } }
+    @keyframes pulse { 0%,100% { transform: scale(.95); opacity: .78; } 50% { transform: scale(1.08); opacity: 1; } }
+    @keyframes scan { 0%,40% { transform: translateX(-260px); opacity: 0; } 55% { opacity: .55; } 85%,100% { transform: translateX(260px); opacity: 0; } }
+    @keyframes terminalFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+  </style>
+
+  <defs>
+    <radialGradient id="heroGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 210) rotate(90) scale(260 520)">
+      <stop stop-color="#60E6FF" stop-opacity="0.42"/>
+      <stop offset="0.45" stop-color="#2A5EF5" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#071033" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cubeA" x1="485" y1="130" x2="620" y2="294" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7BF0FF"/>
+      <stop offset="1" stop-color="#2A5EF5"/>
+    </linearGradient>
+    <linearGradient id="cubeB" x1="600" y1="123" x2="725" y2="295" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4A8CFF"/>
+      <stop offset="1" stop-color="#142B93"/>
+    </linearGradient>
+    <linearGradient id="cubeC" x1="500" y1="250" x2="700" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#315DFF"/>
+      <stop offset="1" stop-color="#60E6FF"/>
+    </linearGradient>
+    <filter id="softShadow" x="380" y="38" width="440" height="330" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="30" stdDeviation="26" flood-color="#00081f" flood-opacity="0.52"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#60e6ff" flood-opacity="0.35"/>
+    </filter>
+    <filter id="nodeGlow" x="0" y="0" width="140" height="140" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#60e6ff" flood-opacity="0.7"/>
+    </filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#60e6ff" stroke-opacity="0.22" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="420" rx="28" fill="url(#heroGlow)"/>
+  <rect width="1200" height="420" rx="28" fill="url(#grid)" class="grid"/>
+  <rect x="1" y="1" width="1198" height="418" rx="27" stroke="#60E6FF" stroke-opacity="0.24"/>
+
+  <g class="orbit">
+    <ellipse cx="600" cy="210" rx="318" ry="74" stroke="var(--line)" stroke-width="2" stroke-dasharray="9 14"/>
+  </g>
+  <g class="orbit two">
+    <ellipse cx="600" cy="210" rx="248" ry="122" stroke="#6b5cff" stroke-width="2" stroke-dasharray="14 18"/>
+  </g>
+  <g class="orbit three">
+    <ellipse cx="600" cy="210" rx="382" ry="36" stroke="#60e6ff" stroke-width="1.5"/>
+  </g>
+
+  <g class="node" filter="url(#nodeGlow)">
+    <circle cx="326" cy="171" r="24" fill="#0d1b55" stroke="#60e6ff"/>
+    <text x="326" y="176" text-anchor="middle" fill="#eef4ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700">AI</text>
+  </g>
+  <g class="node b" filter="url(#nodeGlow)">
+    <circle cx="890" cy="151" r="26" fill="#0d1b55" stroke="#6b5cff"/>
+    <text x="890" y="156" text-anchor="middle" fill="#eef4ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700">API</text>
+  </g>
+  <g class="node c" filter="url(#nodeGlow)">
+    <circle cx="833" cy="296" r="24" fill="#0d1b55" stroke="#60e6ff"/>
+    <text x="833" y="301" text-anchor="middle" fill="#eef4ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700">PTY</text>
+  </g>
+
+  <g class="cube" filter="url(#softShadow)">
+    <path d="M600 72L724 142V282L600 354L476 282V142L600 72Z" fill="#071033" stroke="#60E6FF" stroke-opacity="0.35" stroke-width="3"/>
+    <path d="M600 72L724 142L600 212L476 142L600 72Z" fill="url(#cubeA)"/>
+    <path d="M724 142V282L600 354V212L724 142Z" fill="url(#cubeB)"/>
+    <path d="M476 142V282L600 354V212L476 142Z" fill="url(#cubeC)"/>
+    <path d="M600 72V212M476 142L600 212L724 142M600 212V354" stroke="#EAFBFF" stroke-opacity="0.5" stroke-width="2"/>
+    <path class="shine" d="M472 132L512 110L724 232L684 255L472 132Z" fill="white" opacity="0.0"/>
+  </g>
+
+  <g class="terminal">
+    <rect x="70" y="272" width="330" height="88" rx="16" fill="#071033" fill-opacity="0.86" stroke="#60E6FF" stroke-opacity="0.24"/>
+    <circle cx="94" cy="298" r="5" fill="#60E6FF" opacity=".8"/>
+    <circle cx="112" cy="298" r="5" fill="#2A5EF5" opacity=".8"/>
+    <circle cx="130" cy="298" r="5" fill="#6B5CFF" opacity=".8"/>
+    <text x="94" y="329" fill="#A9B7E8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">$ orbitbox sandbox create</text>
+    <text x="94" y="350" fill="#60E6FF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">✓ isolated runtime ready</text>
+  </g>
+
+  <text x="600" y="42" text-anchor="middle" fill="var(--text)" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="800" letter-spacing="-.8">OrbitBox</text>
+  <text x="600" y="394" text-anchor="middle" fill="var(--muted)" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">Secure, elastic sandboxes for AI-generated code</text>
+</svg>
