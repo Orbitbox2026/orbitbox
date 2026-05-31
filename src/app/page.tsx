@@ -21,8 +21,8 @@ const featureColumns = [
 
 const workflow = [
   ['Develop', 'blue', 'Agents create files, install packages, run commands, and iterate inside a clean workspace.'],
-  ['Preview', 'pink', 'Expose ports, inspect app previews, stream logs, and approve changes before merge.'],
-  ['Ship', 'red', 'Snapshot the verified state, export artifacts, or hand the result to your deploy pipeline.'],
+  ['Preview', 'indigo', 'Expose ports, inspect app previews, stream logs, and approve changes before merge.'],
+  ['Ship', 'navy', 'Snapshot the verified state, export artifacts, or hand the result to your deploy pipeline.'],
 ];
 
 const projectNotes = [
