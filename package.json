@@ -1,8 +1,8 @@
 {
-  "name": "sandbox-runtime-landing",
+  "name": "gramlabs",
   "version": "1.0.0",
   "private": true,
-  "description": "Daytona-inspired landing page for secure AI code sandboxes.",
+  "description": "GramLabs — DeFi marketing site",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,14 +10,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.17.0",
     "next": "^15.5.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "recharts": "^3.8.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
+    "tailwindcss": "^4.3.0",
     "typescript": "^5.9.0"
   }
 }
