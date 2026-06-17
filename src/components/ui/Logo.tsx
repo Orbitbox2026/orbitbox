@@ -11,7 +11,7 @@ export function Logo({ size = 32, showWordmark = true, className = '' }: LogoPro
     <Link
       href="/"
       className={`flex items-center gap-2.5 group focus-visible:outline-none ${className}`}
-      aria-label="GramLabs home"
+      aria-label="CropVerse home"
     >
       <svg
         width={size}
@@ -22,43 +22,36 @@ export function Logo({ size = 32, showWordmark = true, className = '' }: LogoPro
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient id="gram-logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#22d3ee" />
+          <linearGradient id="crop-logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#4ade80" />
+            <stop offset="100%" stopColor="#fbbf24" />
           </linearGradient>
         </defs>
-        {/* Hexagon */}
+        {/* Rounded tile */}
+        <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#crop-logo-grad)" />
+        {/* Sprout: stem + two leaves */}
         <path
-          d="M20 2L36 11V29L20 38L4 29V11L20 2Z"
-          fill="url(#gram-logo-grad)"
+          d="M20 30V19"
+          stroke="#0a120c"
+          strokeWidth="2.6"
+          strokeLinecap="round"
         />
-        {/* Inner ring */}
         <path
-          d="M20 6L33 13.5V26.5L20 34L7 26.5V13.5L20 6Z"
-          fill="none"
-          stroke="rgba(255,255,255,0.15)"
-          strokeWidth="0.75"
+          d="M20 21C20 21 16 21 13.5 18.5C11 16 11 12 11 12C11 12 15 12 17.5 14.5C20 17 20 21 20 21Z"
+          fill="#0a120c"
         />
-        {/* G letter */}
-        <text
-          x="20"
-          y="26"
-          textAnchor="middle"
-          fontSize="19"
-          fontWeight="700"
-          fill="white"
-          fontFamily="system-ui, -apple-system, sans-serif"
-          letterSpacing="-0.5"
-        >
-          G
-        </text>
+        <path
+          d="M20 19C20 19 24 19 26.5 16.5C29 14 29 10 29 10C29 10 25 10 22.5 12.5C20 15 20 19 20 19Z"
+          fill="#0a120c"
+          fillOpacity="0.82"
+        />
       </svg>
       {showWordmark && (
         <span
-          className="font-bold text-[1.125rem] leading-none tracking-tight text-gram-text group-hover:text-gram-purple-light transition-colors duration-200"
+          className="font-bold text-[1.125rem] leading-none tracking-tight text-farm-text group-hover:text-farm-green-light transition-colors duration-200"
           aria-hidden="true"
         >
-          GramLabs
+          CropVerse
         </span>
       )}
     </Link>

@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/sections/Hero';
 import Ticker from '@/components/sections/Ticker';
 import About from '@/components/sections/About';
+import HarvestPool from '@/components/sections/HarvestPool';
 import Stats from '@/components/sections/Stats';
 import Tokenomics from '@/components/sections/Tokenomics';
 import Roadmap from '@/components/sections/Roadmap';
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Ticker />
         <About />
+        <HarvestPool />
         <Stats />
         <Tokenomics />
         <Roadmap />

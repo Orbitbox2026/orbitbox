@@ -1,8 +1,8 @@
 {
-  "name": "gramlabs",
+  "name": "cropverse",
   "version": "1.0.0",
   "private": true,
-  "description": "GramLabs — DeFi marketing site",
+  "description": "CropVerse — web3 farming game marketing site",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

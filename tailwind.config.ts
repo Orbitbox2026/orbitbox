@@ -7,15 +7,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'gram-bg': '#0a0a0f',
-        'gram-card': '#12121a',
-        'gram-border': '#1e1e2e',
-        'gram-purple': '#8b5cf6',
-        'gram-purple-light': '#a78bfa',
-        'gram-cyan': '#22d3ee',
-        'gram-cyan-light': '#67e8f9',
-        'gram-text': '#e5e7eb',
-        'gram-muted': '#9ca3af',
+        'farm-bg': '#0a120c',
+        'farm-card': '#111c14',
+        'farm-border': '#1d2c21',
+        'farm-green': '#22c55e',
+        'farm-green-light': '#4ade80',
+        'farm-gold': '#f59e0b',
+        'farm-gold-light': '#fbbf24',
+        'farm-text': '#e8f0ea',
+        'farm-muted': '#93a399',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

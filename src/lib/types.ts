@@ -1,8 +1,7 @@
-export interface CoinData {
+export interface CropMarketItem {
   id: string;
-  symbol: string;
   name: string;
-  image: string;
-  current_price: number;
-  price_change_percentage_24h: number;
+  emoji: string;
+  price: number;
+  change24h: number;
 }

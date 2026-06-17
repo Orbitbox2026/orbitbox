@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gram-bg: #0a0a0f;
-  --color-gram-card: #12121a;
-  --color-gram-border: #1e1e2e;
-  --color-gram-purple: #8b5cf6;
-  --color-gram-purple-light: #a78bfa;
-  --color-gram-cyan: #22d3ee;
-  --color-gram-cyan-light: #67e8f9;
-  --color-gram-text: #e5e7eb;
-  --color-gram-muted: #9ca3af;
+  --color-farm-bg: #0a120c;
+  --color-farm-card: #111c14;
+  --color-farm-border: #1d2c21;
+  --color-farm-green: #22c55e;
+  --color-farm-green-light: #4ade80;
+  --color-farm-gold: #f59e0b;
+  --color-farm-gold-light: #fbbf24;
+  --color-farm-text: #e8f0ea;
+  --color-farm-muted: #93a399;
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
 
@@ -55,32 +55,32 @@ html {
 }
 
 body {
-  background-color: #0a0a0f;
-  color: #e5e7eb;
+  background-color: #0a120c;
+  color: #e8f0ea;
   font-family: var(--font-inter, system-ui, sans-serif);
   margin: 0;
   overflow-x: hidden;
 }
 
 ::selection {
-  background-color: rgba(139, 92, 246, 0.35);
-  color: #e5e7eb;
+  background-color: rgba(74, 222, 128, 0.32);
+  color: #e8f0ea;
 }
 
 :focus-visible {
-  outline: 2px solid #8b5cf6;
+  outline: 2px solid #22c55e;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0a0a0f; }
-::-webkit-scrollbar-thumb { background: #3f3f5c; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #0a120c; }
+::-webkit-scrollbar-thumb { background: #2c4434; border-radius: 3px; }
 
 a { color: inherit; text-decoration: none; }
 
 .gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 100%);
+  background: linear-gradient(135deg, #4ade80 0%, #fbbf24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

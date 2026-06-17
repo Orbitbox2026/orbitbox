@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Logo } from './ui/Logo';
 import { NAV_LINKS, SOCIAL } from '@/lib/constants';
-import { Send, Menu, X, ChevronRight } from 'lucide-react';
+import { Send, Menu, X, ChevronRight, Sprout } from 'lucide-react';
 import clsx from 'clsx';
 
 export default function Header() {
@@ -50,7 +50,7 @@ export default function Header() {
       className={clsx(
         'fixed top-0 inset-x-0 z-50 h-16 flex items-center justify-between px-6 md:px-10 transition-all duration-300',
         scrolled
-          ? 'bg-[#0a0a0f]/85 backdrop-blur-md border-b border-[#1e1e2e] shadow-lg shadow-black/20'
+          ? 'bg-[#0a120c]/85 backdrop-blur-md border-b border-[#1d2c21] shadow-lg shadow-black/20'
           : 'bg-transparent',
       )}
     >
@@ -62,7 +62,7 @@ export default function Header() {
           <a
             key={href}
             href={href}
-            className="text-sm font-medium text-[#9ca3af] hover:text-[#e5e7eb] transition-colors duration-200"
+            className="text-sm font-medium text-[#93a399] hover:text-[#e8f0ea] transition-colors duration-200"
           >
             {label}
           </a>
@@ -75,8 +75,8 @@ export default function Header() {
           href={SOCIAL.x}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Follow GramLabs on X"
-          className="w-9 h-9 flex items-center justify-center rounded-lg text-[#9ca3af] hover:text-[#e5e7eb] hover:bg-[#12121a] transition-all duration-200"
+          aria-label="Follow CropVerse on X"
+          className="w-9 h-9 flex items-center justify-center rounded-lg text-[#93a399] hover:text-[#e8f0ea] hover:bg-[#111c14] transition-all duration-200"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
@@ -86,22 +86,23 @@ export default function Header() {
           href={SOCIAL.telegram}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Join GramLabs on Telegram"
-          className="w-9 h-9 flex items-center justify-center rounded-lg text-[#9ca3af] hover:text-[#e5e7eb] hover:bg-[#12121a] transition-all duration-200"
+          aria-label="Join CropVerse on Telegram"
+          className="w-9 h-9 flex items-center justify-center rounded-lg text-[#93a399] hover:text-[#e8f0ea] hover:bg-[#111c14] transition-all duration-200"
         >
           <Send className="w-4 h-4" aria-hidden="true" />
         </a>
         <a
-          href="#about"
-          className="ml-1 px-4 py-2 rounded-lg bg-[#8b5cf6] text-white text-sm font-semibold hover:bg-[#a78bfa] transition-colors duration-200 shadow-lg shadow-[#8b5cf6]/25"
+          href="#how-to-play"
+          className="ml-1 flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#22c55e] text-[#0a120c] text-sm font-semibold hover:bg-[#4ade80] transition-colors duration-200 shadow-lg shadow-[#22c55e]/25"
         >
-          Get Started
+          <Sprout className="w-4 h-4" aria-hidden="true" />
+          Play Now
         </a>
       </div>
 
       {/* Mobile hamburger */}
       <button
-        className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-[#9ca3af] hover:text-[#e5e7eb] hover:bg-[#12121a] transition-all duration-200"
+        className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-[#93a399] hover:text-[#e8f0ea] hover:bg-[#111c14] transition-all duration-200"
         type="button"
         aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
         aria-expanded={menuOpen}
@@ -115,7 +116,7 @@ export default function Header() {
       {menuOpen && (
         <div
           id="mobile-menu"
-          className="fixed inset-0 top-16 bg-[#0a0a0f]/97 backdrop-blur-xl z-40 flex flex-col p-6 border-t border-[#1e1e2e]"
+          className="fixed inset-0 top-16 bg-[#0a120c]/97 backdrop-blur-xl z-40 flex flex-col p-6 border-t border-[#1d2c21]"
           aria-label="Mobile navigation"
         >
           <nav className="flex flex-col gap-1">
@@ -124,10 +125,10 @@ export default function Header() {
                 key={href}
                 href={href}
                 onClick={close}
-                className="flex items-center justify-between px-4 py-4 rounded-xl text-[#e5e7eb] font-medium hover:bg-[#12121a] transition-colors duration-200"
+                className="flex items-center justify-between px-4 py-4 rounded-xl text-[#e8f0ea] font-medium hover:bg-[#111c14] transition-colors duration-200"
               >
                 {label}
-                <ChevronRight className="w-4 h-4 text-[#9ca3af]" aria-hidden="true" />
+                <ChevronRight className="w-4 h-4 text-[#93a399]" aria-hidden="true" />
               </a>
             ))}
           </nav>
@@ -137,7 +138,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={close}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#12121a] text-[#9ca3af] hover:text-[#e5e7eb] transition-colors duration-200"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#111c14] text-[#93a399] hover:text-[#e8f0ea] transition-colors duration-200"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
@@ -149,7 +150,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={close}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#12121a] text-[#9ca3af] hover:text-[#e5e7eb] transition-colors duration-200"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#111c14] text-[#93a399] hover:text-[#e8f0ea] transition-colors duration-200"
             >
               <Send className="w-4 h-4" aria-hidden="true" />
               <span className="text-sm font-medium">Join Telegram</span>
@@ -157,11 +158,12 @@ export default function Header() {
           </div>
           <div className="mt-auto">
             <a
-              href="#about"
+              href="#how-to-play"
               onClick={close}
-              className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#8b5cf6] text-white font-semibold hover:bg-[#a78bfa] transition-colors duration-200"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#22c55e] text-[#0a120c] font-semibold hover:bg-[#4ade80] transition-colors duration-200"
             >
-              Get Started
+              <Sprout className="w-4 h-4" aria-hidden="true" />
+              Play Now
             </a>
           </div>
         </div>

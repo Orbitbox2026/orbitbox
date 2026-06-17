@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { label: 'Total Value Locked', value: 42, suffix: 'M', prefix: '$', decimals: 0 },
-  { label: 'GRAM Holders', value: 18, suffix: 'K+', prefix: '', decimals: 0 },
-  { label: 'Transactions', value: 2.4, suffix: 'M', prefix: '', decimals: 1 },
-  { label: 'Countries', value: 120, suffix: '+', prefix: '', decimals: 0 },
+  { label: 'Active Farmers', value: 24, suffix: 'K+', prefix: '', decimals: 0 },
+  { label: 'Crops Harvested', value: 8.6, suffix: 'M', prefix: '', decimals: 1 },
+  { label: 'Daily $CROP Pool', value: 50, suffix: 'K', prefix: '', decimals: 0 },
+  { label: 'Countries', value: 90, suffix: '+', prefix: '', decimals: 0 },
 ];
 
 function Counter({
@@ -73,7 +73,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section aria-label="Key protocol statistics" className="py-20 md:py-28 bg-[#12121a]/30 border-y border-[#1e1e2e]">
+    <section aria-label="Key game statistics" className="py-20 md:py-28 bg-farm-card/30 border-y border-farm-border">
       <div ref={ref} className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ export default function Stats() {
               className="flex flex-col items-center text-center gap-2"
             >
               <Counter {...s} active={active} />
-              <span className="text-sm text-[#9ca3af] font-medium">{s.label}</span>
+              <span className="text-sm text-farm-muted font-medium">{s.label}</span>
             </motion.div>
           ))}
         </motion.div>
