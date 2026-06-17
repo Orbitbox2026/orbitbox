@@ -9,11 +9,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'GramLabs — The Future of Decentralized Finance',
-  description: 'GramLabs is a community-driven DeFi protocol building next-generation decentralized infrastructure. Join 18,000+ holders.',
+  title: 'CropVerse — A Cozy On-Chain Farming World',
+  description:
+    'CropVerse is a cozy real-time multiplayer farming game. Grow crops, expand your farm, visit friends, and earn $CROP rewards from the daily Harvest Pool.',
   openGraph: {
-    title: 'GramLabs — The Future of Decentralized Finance',
-    description: 'Community-driven DeFi. Decentralized, Secure, and Built for Everyone.',
+    title: 'CropVerse — A Cozy On-Chain Farming World',
+    description: 'Grow crops, expand your farm, and earn real $CROP rewards. Plant. Harvest. Earn.',
     type: 'website',
   },
 };

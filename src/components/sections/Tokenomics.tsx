@@ -5,10 +5,11 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, type TooltipContentP
 import { Info } from 'lucide-react';
 
 const SEGMENTS = [
-  { name: 'Public Sale', value: 40, color: '#8b5cf6', desc: 'Open to community via fair launch' },
-  { name: 'Ecosystem', value: 25, color: '#22d3ee', desc: 'Grants, partnerships, integrations' },
-  { name: 'Liquidity', value: 20, color: '#67e8f9', desc: 'DEX liquidity & market making' },
-  { name: 'Team (Vested)', value: 15, color: '#a78bfa', desc: '4-year vesting, 1-year cliff' },
+  { name: 'Harvest Pool Rewards', value: 45, color: '#22c55e', desc: 'Distributed daily to active farmers' },
+  { name: 'Liquidity', value: 20, color: '#4ade80', desc: 'DEX liquidity & market making' },
+  { name: 'Treasury', value: 15, color: '#fbbf24', desc: 'Funded partly by Gems purchases' },
+  { name: 'Team (Vested)', value: 12, color: '#f59e0b', desc: '4-year vesting, 1-year cliff' },
+  { name: 'Community & Airdrops', value: 8, color: '#a3e635', desc: 'Events, quests, and early players' },
 ];
 
 const RADIAN = Math.PI / 180;
@@ -20,7 +21,7 @@ function CustomLabel({ cx, cy, midAngle, innerRadius, outerRadius, value }: {
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   return (
-    <text x={x} y={y} fill="white" textAnchor="middle" dominantBaseline="central" fontSize={13} fontWeight={700}>
+    <text x={x} y={y} fill="#0a120c" textAnchor="middle" dominantBaseline="central" fontSize={13} fontWeight={700}>
       {`${value}%`}
     </text>
   );
@@ -30,16 +31,16 @@ function CustomTooltip({ active, payload }: TooltipContentProps<number, string>)
   if (!active || !payload?.length) return null;
   const d = payload[0];
   return (
-    <div className="bg-gram-bg border border-gram-border rounded-xl px-4 py-3 shadow-xl text-sm">
-      <p className="font-semibold text-gram-text">{d.name}</p>
-      <p className="text-gram-muted mt-0.5">{d.value}% of total supply</p>
+    <div className="bg-farm-bg border border-farm-border rounded-xl px-4 py-3 shadow-xl text-sm">
+      <p className="font-semibold text-farm-text">{d.name}</p>
+      <p className="text-farm-muted mt-0.5">{d.value}% of total supply</p>
     </div>
   );
 }
 
 export default function Tokenomics() {
   return (
-    <section id="tokenomics" className="py-24 md:py-32 px-6 bg-gram-card/30">
+    <section id="token" className="py-24 md:py-32 px-6 bg-farm-card/30">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,15 +49,16 @@ export default function Tokenomics() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gram-cyan/10 border border-gram-cyan/30 text-xs font-semibold text-gram-cyan tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-xs font-semibold text-[#fbbf24] tracking-widest uppercase mb-4">
             <Info className="w-3 h-3" aria-hidden />
             Demo Data
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gram-text">
-            Token <span className="gradient-text">Distribution</span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-farm-text">
+            The <span className="gradient-text">$CROP</span> Token
           </h2>
-          <p className="mt-4 text-gram-muted text-lg max-w-xl mx-auto">
-            GRAM total supply: <span className="font-semibold text-gram-text">1,000,000,000</span> tokens. Tokenomics designed for long-term sustainability.
+          <p className="mt-4 text-farm-muted text-lg max-w-xl mx-auto">
+            Total supply: <span className="font-semibold text-farm-text">1,000,000,000</span> $CROP.
+            The largest share goes straight back to farmers through the Harvest Pool.
           </p>
         </motion.div>
 
@@ -94,20 +96,20 @@ export default function Tokenomics() {
           {/* Legend */}
           <div className="space-y-4">
             {SEGMENTS.map((seg) => (
-              <div key={seg.name} className="flex items-start gap-4 p-4 rounded-xl bg-gram-card border border-gram-border hover:border-gram-border/80 transition-colors duration-200">
+              <div key={seg.name} className="flex items-start gap-4 p-4 rounded-xl bg-farm-card border border-farm-border hover:border-farm-border/80 transition-colors duration-200">
                 <div className="flex-shrink-0 mt-0.5">
                   <div className="w-4 h-4 rounded" style={{ backgroundColor: seg.color }} aria-hidden />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-semibold text-gram-text">{seg.name}</span>
-                    <span className="font-bold text-gram-text tabular-nums">{seg.value}%</span>
+                    <span className="font-semibold text-farm-text">{seg.name}</span>
+                    <span className="font-bold text-farm-text tabular-nums">{seg.value}%</span>
                   </div>
-                  <p className="text-xs text-gram-muted mt-0.5">{seg.desc}</p>
-                  <div className="mt-2 h-1.5 rounded-full bg-gram-bg overflow-hidden">
+                  <p className="text-xs text-farm-muted mt-0.5">{seg.desc}</p>
+                  <div className="mt-2 h-1.5 rounded-full bg-farm-bg overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-1000"
-                      style={{ width: `${seg.value * 2.5}%`, backgroundColor: seg.color }}
+                      style={{ width: `${seg.value}%`, backgroundColor: seg.color }}
                     />
                   </div>
                 </div>
