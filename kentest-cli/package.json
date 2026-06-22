@@ -1,0 +1,52 @@
+{
+  "name": "@kentest/kentest-cli",
+  "version": "0.1.0",
+  "description": "KenTest CLI — AI-powered browser testing platform for coding agents",
+  "author": "KenTest Team",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "kentest": "dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write src",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "valibot": "^0.36.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0",
+    "prettier": "^3.3.0",
+    "eslint": "^9.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "testing",
+    "ai",
+    "cli",
+    "browser-testing",
+    "automation",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orbitbox2026/orbitbox"
+  }
+}
